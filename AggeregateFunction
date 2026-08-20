@@ -1,0 +1,40 @@
+create database company;
+ use company;
+  create table employee(
+  e_id int primary key,
+  e_name varchar(50),
+  Department varchar(50),
+  Designation varchar(50),
+  Salary int not null,
+  Date_of_joining date);
+  
+  insert into employee (e_id,e_name,Department,Designation,Salary,Date_of_joining)
+  values
+  ( 101,"aastha","Technical","Manager",70000,'2026-11-25'),
+  ( 102,"anant","Technical","Team Leader",80000,'2026-10-23'),
+  ( 103,"sakshi","Accounts","Manager",60000,'2009-10-15'),
+  ( 104,"joya","Accounts","Employee",40000,'2016-05-25'),
+  ( 105,"vinti","Finance","Head",80000,'2016-03-03'),
+  ( 106,"aditya","Finance","Team Leader",60000,'2024-11-20');
+  
+  select count(e_id)
+  from employee;
+  
+  select sum(Salary)
+  from employee;
+  
+  select avg(Salary)
+  from employee;
+  
+SELECT e_id, salary
+FROM employee
+WHERE salary = (SELECT MAX(salary) FROM employee)
+   OR salary = (SELECT MIN(salary) FROM employee);
+
+SELECT department, COUNT(*) AS no_of_employees
+FROM employee
+GROUP BY department;
+
+ SELECT e_id
+FROM employee
+WHERE date_of_joining < DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
