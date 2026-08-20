@@ -1,0 +1,58 @@
+create database school;
+ use school;
+  create table student(
+  roll_number int primary key,
+  s_name varchar(50),
+  Department varchar(50),
+  Semester int not null,
+  CGPA int not null);
+  
+  insert into student (roll_number ,s_name,Department,Semester,CGPA)
+  values
+  ( 101,"aastha","CSDS",4,8.9),
+  ( 102,"anant","CSE",5,8.6),
+  ( 103,"sakshi","ECE",5,8.0),
+  ( 104,"joya","CSDS",5,7),
+  ( 105,"vinti","CSE",4,7.8),
+  ( 106,"aditya","CSDS",5,8.7);
+  
+  select s_name,Department
+  from student;
+  
+  select distinct Department
+  from student;
+  
+  select*
+  from student
+  where CGPA>7;
+  
+SELECT *
+FROM student
+WHERE Department="CSDS";
+   
+
+SELECT *
+FROM student
+order by CGPA  desc;
+
+
+ SELECT s_name
+FROM student
+order by s_name ;
+
+select roll_number,s_name
+from student
+where CGPA between 8 and 9;
+
+select *
+from student
+where Department = "CSDS"OR"CSE";
+
+select *from
+student
+order by CGPA desc 
+limit  3;
+
+select*
+from student
+where s_name="a";
